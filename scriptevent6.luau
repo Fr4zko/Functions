@@ -1,6 +1,11 @@
+-- Criando o Evento
 local Objetivo = Instance.new("BindableEvent")
+
+--Localizando Part
 local Part = game.Workspace.Part
 
+
+--O que o evento faz/ Função do Evento
 local function PontoDeCaptura(Captura)
 	Part.BrickColor = BrickColor.Blue()
 	Part.Material = "Neon"
@@ -8,9 +13,10 @@ local function PontoDeCaptura(Captura)
 	Evento:Disconnect()
 end
 
+--Colocando um Função para a Variavel Global: Evento
 Evento = Objetivo.Event:Connect(PontoDeCaptura)
 
--- ativação do evento
+-- Ativa o Evento
 
 Part.Touched:Connect(function()
 	Objetivo:Fire()
